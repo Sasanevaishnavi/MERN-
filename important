@@ -1,0 +1,90 @@
+{
+    npm init -y  :- is used to quickly create a package.json file in a Node.js project with default values
+
+    nodemon :- nodemon is a utility tool for Node.js that automatically restarts your server when you make changes to your code files.
+
+    Postman is a free API testing tool that allows developers to:
+    Send HTTP requests (GET, POST, PUT, DELETE, etc.)
+    Test API endpoints without building a frontend
+    Inspect responses from the server
+
+    npm i bcrypt:-This installs the bcrypt library, which is used to securely hash passwords before saving them to your database.
+    Hashing Password Before Saving (Registration)  :-
+        const bcrypt = require("bcrypt");
+        const hashedPassword = await bcrypt.hash(plainPassword, 10); // 10 is salt rounds
+    Compare Password on Login:- 
+        const isMatch = await bcrypt.compare(userInputPassword, hashedPassword);
+
+
+    JWT stands for JSON Web Token. It is a compact, URL-safe way of securely transmitting information between parties as a JSON object. It's commonly used for authentication and authorization in web applications.
+    Header:- Type of token and hashing algorithm used.
+    Payload:- Contains the actual data (claims), like user id, email, role, etc.
+    Signature:- Created using a secret key and ensures the token is not tampered with.
+
+
+    Zod is a TypeScript-first schema declaration and validation library. It's used to define the shape (schema) of data and validate that data at runtime. Think of it like a tool that checks if your data is correct, based on a predefined structure.
+    Why use Zod?
+    To validate user input (like form data, API requests).
+    To define expected data structures clearly.
+    To get typed and safe data in TypeScript projects.
+    Great for API validation, especially in MERN or Next.js apps.
+
+
+    CORS stands for Cross-Origin Resource Sharing.
+A CORS error occurs when your frontend (React, for example) tries to access a server (like your Express backend) that is on a different origin, and that server does not explicitly allow such a request.
+
+
+
+
+
+}   
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+{
+    const express = require("express");
+    What it does: Imports the express module.
+
+    const app = express();
+    What it does: Creates an Express application instance.
+
+    const router = express.Router();
+    To organize your routes better — especially in larger applications.
+    Instead of writing all routes in server.js or app.js, you can:
+    Create separate route files (like userRoutes.js, productRoutes.js)
+    Use express.Router() in those files to define routes
+    Then import and use them in your main app file.
+
+
+    Routes:-	Define the URL paths and link them to logic (handlers).
+    Controllers:-Define the actual business logic (what happens when a route is hit).
+
+    
+    
+    const mongoose = require("mongoose");
+    Imports the Mongoose library. Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js.
+
+    // const URL = "mongodb://127.0.0.1:27017"
+    const URL = process.env.MONGODB_URL;
+    Instead of hardcoding the MongoDB URL, it uses process.env.MONGODB_URL, which means the actual URL is stored in an environment variable.
+    This is useful for security (no secrets in code) and flexibility (different environments: dev, test, prod).
+
+    process.exit(0) terminates the app immediately (usually exit(1) is used for failure, but 0 just means exit).  
+
+    This line uses Mongoose's findOne() method to search for a single user in the MongoDB database based on the email field.
+
+    parseAsync is a method provided by Zod used to validate data asynchronously.
+        const parsebody = await schema.parseAsync(req.body);
+        This line validates req.body against the provided Zod schema using schema.parseAsync().
+
+        A void element (also called a self-closing tag or empty element) is an HTML element that does not have any content or closing tag. These elements are used to insert things like line breaks, images, or input fields that don’t need a surrounding content block.
+
+        import { BrowserRouter, Routes, Route } from "react-router-dom";
+            BrowserRouter: Provides the routing context to your app using the browser's URL.
+            Routes: A container that holds all your Route definitions.
+            Route: Defines a specific path and which component to render.
+
+
+    import { Navigate } from "react-router-dom"; is used in React Router to programmatically redirect users from one route to another inside your component.
+
+
+}

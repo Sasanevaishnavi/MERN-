@@ -1,0 +1,124 @@
+import { useEffect } from "react";
+import { createContext , useContext, useState } from "react";
+import { toast } from "react-toastify";
+
+
+
+export const AuthContext = createContext();
+
+export const AuthProvider = ({children}) =>{
+
+    const [token , setToken] =useState(localStorage.getItem("token"));
+    const [user , setuser] = useState("");
+    const [service, setservice] = useState([]);
+
+
+    
+
+    const storeTokenInLS = (serverToken) =>{
+        setToken(serverToken);
+        localStorage.setItem("token", serverToken);
+        
+        
+
+    };
+
+    let isLoggeIn = !!token;
+    console.log("isloggedin", isLoggeIn);
+
+     //logout function
+    const LogoutUser = () =>{
+        setToken("");
+        
+        return localStorage.removeItem("token");
+    };
+    
+
+
+    //JtWT AUTHONTICATION - to currenly loged in user data
+        const userAuthontication = async() =>{
+            try {
+                const response = await fetch("http://localhost:5000/api/auth/user" , {
+                    method:"GET",
+                    headers:{
+                        Authorization:`Bearer ${token}`,
+                    },
+                    
+                });
+                console.log("currently loged user responcd", response);
+
+                if(response.ok){
+                    const data = await response.json();
+                    console.log(" my curent user data here is somting wrong plz pring it ", data.userData);
+                    
+                    setuser(data.userData);
+
+                }
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.log("User fetch failed. Response not OK.");
+                    console.log("Raw response text:", errorText);
+                }
+
+                
+                
+            } catch (error) {
+                console.log("error to fetch user data on contact page ");
+                
+            }
+        }
+
+        //fetch service data from database
+        const getServicwsData = async () =>{
+            try {
+
+                    const response = await fetch( "http://localhost:5000/api/data/service",{
+                        method:"GET",    
+                    });
+
+                    console.log("featched services by server",response);
+                    
+                    if (response.ok){
+                        const data = await response.json();
+                        console.log("fetching services data ",data);
+                           if (Array.isArray(data.msg)) {
+                            setservice(data.msg);
+                            } else {
+                            console.error("Invalid response: msg is not an array");
+                            }
+                                                
+
+                    }
+
+                } catch (error) {
+                    console.log(`services fetch fad ${error}`);
+                    
+                    
+                }
+            }
+    
+    
+        useEffect(() => {
+            if (token) {
+                userAuthontication();
+                getServicwsData();
+            }
+        }, [token]);
+
+
+    return (
+    <AuthContext.Provider value={{isLoggeIn ,LogoutUser ,  storeTokenInLS , user ,service}}>
+        {children}
+    </AuthContext.Provider>
+);
+};
+
+export const useAuth = () =>{
+    const authContextValue = useContext(AuthContext);
+    if(!authContextValue){
+        throw new Error("useAuth used outside of the Provider");
+        
+    }
+    return authContextValue;
+};
+
