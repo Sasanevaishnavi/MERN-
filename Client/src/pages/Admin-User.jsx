@@ -12,7 +12,7 @@ export const AdminUser = ()=>{
 // function for token autharization
 const getAllUserData = async () =>{
     try {
-        const response = await fetch("http://localhost:5000/api/admin/users",{
+        const response = await fetch("https://mern-j2ip.onrender.com/api/admin/users",{
             method:"GET",
             headers:{
                 Authorization:authorizationToken,
@@ -33,7 +33,7 @@ const getAllUserData = async () =>{
     const deleteUser =async(_id)=>{
         try {
             
-            const response = await fetch(`http://localhost:5000/api/admin/users/delete/${_id}`, {
+            const response = await fetch(`https://mern-j2ip.onrender.com/api/admin/users/delete/${_id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': authorizationToken,  
@@ -62,7 +62,7 @@ const getAllUserData = async () =>{
 
         
 
-        const response = await fetch(`http://localhost:5000/api/admin/users/update/${_id}`, {
+        const response = await fetch(`https://mern-j2ip.onrender.com/api/admin/users/update/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const getAllUserData = async () =>{
 // function to get all contact data fron server
 const getAllContactData = async ()=>{
     try {
-        const responce = await fetch("http://localhost:5000/api/admin/contacts",{
+        const responce = await fetch("https://mern-j2ip.onrender.com/api/admin/contacts",{
             method:"GET",
             headers:{
                 "Content-Type": "application/json",

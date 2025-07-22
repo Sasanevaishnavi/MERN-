@@ -8,7 +8,7 @@ export const AdminContact = () => {
     // function to get all contact data fron server
     const getAllContactData = async () => {
         try {
-            const responce = await fetch("http://localhost:5000/api/admin/contacts", {
+            const responce = await fetch("https://mern-j2ip.onrender.com/api/admin/contacts", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const AdminContact = () => {
     const deleteContact =async(id)=>{
         try {
             
-            const response = await fetch(`http://localhost:5000/api/admin/contacts/delete/${id}`, {
+            const response = await fetch(`https://mern-j2ip.onrender.com/api/admin/contacts/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': authorizationToken,  

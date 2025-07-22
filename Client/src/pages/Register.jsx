@@ -31,7 +31,7 @@ export const Register = () => {
         try {
             console.log("Submitting registration...");
 
-            const response = await fetch("http://localhost:5000/api/auth/register", {
+            const response = await fetch("https://mern-j2ip.onrender.com/api/auth/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

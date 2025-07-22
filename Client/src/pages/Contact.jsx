@@ -37,7 +37,7 @@ export const Contact = () => {
         e.preventDefault();
         try {
              
-           const response = await fetch("http://localhost:5000/api/form/contactFrom", {
+           const response = await fetch("https://mern-j2ip.onrender.com/api/form/contactFrom", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

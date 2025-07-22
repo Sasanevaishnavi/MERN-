@@ -30,7 +30,7 @@ export const Login = () => {
         try {
             console.log("Attempting login...");
 
-            const response = await fetch("http://localhost:5000/api/auth/login", {
+            const response = await fetch("https://mern-j2ip.onrender.com/api/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

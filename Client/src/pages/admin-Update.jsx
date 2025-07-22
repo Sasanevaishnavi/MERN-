@@ -19,7 +19,7 @@ export const AdminUpdate = () => {
   const getSingleUserData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/users/${params.id}`,
+        `https://mern-j2ip.onrender.com/api/admin/users/${params.id}`,
         {
           method: "GET",
           headers: {
@@ -63,7 +63,7 @@ export const AdminUpdate = () => {
 
     e.preventDefault();
     try {
-         const response = await fetch(`http://localhost:5000/api/admin/user/update/${params.id}`, {
+         const response = await fetch(`https://mern-j2ip.onrender.com/api/admin/user/update/${params.id}`, {
                 method:  'PATCH',
                 headers: {
                     "Content-Type": "application/json",
