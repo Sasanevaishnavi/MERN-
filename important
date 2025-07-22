@@ -86,5 +86,39 @@ A CORS error occurs when your frontend (React, for example) tries to access a se
 
     import { Navigate } from "react-router-dom"; is used in React Router to programmatically redirect users from one route to another inside your component.
 
+    .then() is used to handle success when the promise is resolved.
+🔸 .catch() is used to handle errors if the promise fails.
+     You can also use async/await instead of .then()
+
+     const { Schema, model } = require("mongoose");
+      This line imports Schema and model from the mongoose library.
+        Schema: Lets you define the structure of documents inside a MongoDB collection (like a table structure).
+        model: Creates the model (collection) using the schema. You can use this model to interact with MongoDB (e.g., create, read, update, delete documents).
+
+
+    What is Parsing?
+        Parsing means analyzing a string of data and converting it into a format that a program can understand and work with.
+
+    req.params.id == we can get url data by usig this 
+    
+    import { ToastContainer, toast } from 'react-toastify'; for better eroor 
+
+    When you make a fetch() call, it returns a Response object, which contains the raw response, not actual JSON data.
+    to get acctual data we neet to use await response.json();
+
+    router.get("/users", controllerFunction);  and router.route("/users").get(controllerFunction);
+    They do the same thing, but the .route() style is useful when you want to group multiple methods (GET, POST, PUT, DELETE) for the same route.
+
+
+}
+///////////////////////////////////////////////////////////////////
+
+{
+    mongoose url
+
+    show db
+    show collections
+    db.collection_name.find()
+
 
 }

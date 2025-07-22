@@ -11,7 +11,7 @@ export const Navbar = () =>{
         <header >
             <div className="container">
                 <div className="logo-brand">
-                    <NavLink to="/">Technical</NavLink>
+                    <NavLink to="/">TechStore</NavLink>
                 </div>
 
                 <nav className="contaner_navelink">
@@ -22,12 +22,13 @@ export const Navbar = () =>{
                         <li>
                             <NavLink to="/about">About</NavLink>
                         </li>
-                        <li>
-                            <NavLink to="/services">Services</NavLink>
-                        </li>
+                        
 
                         {isLoggeIn ? (
-                            <li><NavLink to="/logout">Logout</NavLink></li>
+                            <>
+                            <li><NavLink to="/logout">Logout</NavLink></li> 
+                            <li><NavLink to="/services">Services</NavLink></li>
+                            </>
                             ) : (
                             <>
                                 <li><NavLink to="/register">Register</NavLink></li>

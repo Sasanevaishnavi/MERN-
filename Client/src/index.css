@@ -60,6 +60,16 @@ a {
   max-width: 140rem;
   padding: 4rem 2.4rem;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  
+}
+.containers{
+      max-width: 140rem;
+    padding: 4.2rem 2.4rem;
+    display: flex;
+    justify-content: center;
+
 }
 
 .grid {
@@ -136,8 +146,8 @@ button {
   justify-content: center;
 
   img {
-    width: 70%;
-    height: auto;
+    width: 500px;
+    height: 500px;
   }
 }
 
@@ -177,6 +187,7 @@ button {
   background-color: #646cff;
   border-radius: 1rem;
   text-align: center;
+  padding-top: 10px;
 }
 
 /* Contact CSS */
@@ -235,11 +246,15 @@ button {
     align-items: center;
   }
 
-  .regidtration-from {
+  .registration-form {
     form {
       display: flex;
       flex-direction: column;
       gap: 0.7rem;
+      width: 300px;
+      margin-left: 50px;
+     
+      
     }
 
     label {
@@ -249,7 +264,7 @@ button {
     }
 
     input {
-      width: 80%;
+      width: 100%;
       padding: 0.4rem 0.6rem;
     }
   }
@@ -362,8 +377,8 @@ error handing style  */
 
 .card {
   
-  background-color: #000; /* black */
-  color: #fff;            /* white text */
+  background-color: #040121; 
+  color: #fff;           
   border: 1px solid #ccc;
   border-radius: 1rem;
   padding: 2rem;
@@ -385,8 +400,8 @@ error handing style  */
 }
 
 .card-img img {
-  width: 120px;
-  height: auto;
+  width: 250px;
+  height: 240px;
 }
 
 .card-details {
@@ -395,11 +410,12 @@ error handing style  */
 
 .card-details h2 {
   font-size: 2.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .card-details p {
-   font-size: 1.6rem;
+   font-size: 1.5rem;
   color: #fff; /* white text */
 }
 
@@ -411,6 +427,6 @@ error handing style  */
    color: #ccc; /* light gray for contrast */
 }
 
-.section-services{
+/* .section-services{
   display: flex;
-}
+} */

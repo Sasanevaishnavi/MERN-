@@ -7,11 +7,13 @@ export const Logout = () =>{
     const{LogoutUser} = useAuth();
 
     useEffect(()=>{
+        toast.info("Logout User")
         LogoutUser();
+        
     }, [LogoutUser]);
 
     
-    toast.info("Logout User")
+    
     return (
         
         <Navigate to="/login" />

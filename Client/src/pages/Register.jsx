@@ -76,16 +76,17 @@ export const Register = () => {
         <section>
             <main>
                 <div className="section-registraion">
-                    <div className="container grid grid-two-cols">
+                    <div className="containers">
+                    <div className=" grid grid-two-cols">
                         <div className="registration-image">
                             <img 
                                 src="/registration.png"
                                 alt="pic for registration"
-                                width="500"
-                                height="500"
+                                width="500px"
+                                height="440"
                             />
                         </div>
-                        <div className="regidtration-from">
+                        <div className="registration-form">
                             <h1 className="main-heading mg-3">Registration Form</h1>
                             <br/>
                             <form onSubmit={handleSubmit}>
@@ -149,6 +150,7 @@ export const Register = () => {
                                 <button type="submit" className="btn btn-submit">Register Now</button>
                             </form>
                         </div>
+                    </div>
                     </div>
                 </div>
             </main>

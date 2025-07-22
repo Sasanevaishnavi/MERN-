@@ -11,22 +11,22 @@ export const AuthProvider = ({children}) =>{
     const [token , setToken] =useState(localStorage.getItem("token"));
     const [user , setuser] = useState("");
     const [service, setservice] = useState([]);
+    const authorizationToken = `Bearer ${token}`;
+    const [isLodding, setisLodding] = useState(true);
 
 
     
-
+// function for store token  in local storage
     const storeTokenInLS = (serverToken) =>{
         setToken(serverToken);
         localStorage.setItem("token", serverToken);
-        
-        
 
     };
 
     let isLoggeIn = !!token;
     console.log("isloggedin", isLoggeIn);
 
-     //logout function
+//logout function
     const LogoutUser = () =>{
         setToken("");
         
@@ -35,13 +35,14 @@ export const AuthProvider = ({children}) =>{
     
 
 
-    //JtWT AUTHONTICATION - to currenly loged in user data
+//JtWT AUTHONTICATION - to currenly loged in user data
         const userAuthontication = async() =>{
             try {
+                setisLodding(true)
                 const response = await fetch("http://localhost:5000/api/auth/user" , {
                     method:"GET",
                     headers:{
-                        Authorization:`Bearer ${token}`,
+                        Authorization:authorizationToken,
                     },
                     
                 });
@@ -49,16 +50,15 @@ export const AuthProvider = ({children}) =>{
 
                 if(response.ok){
                     const data = await response.json();
-                    console.log(" my curent user data here is somting wrong plz pring it ", data.userData);
-                    
+                    console.log(" curent user data ", data.userData);
                     setuser(data.userData);
+                    setisLodding(false)
 
+                }else{
+                    setisLodding(false);
+                    
                 }
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    console.log("User fetch failed. Response not OK.");
-                    console.log("Raw response text:", errorText);
-                }
+                
 
                 
                 
@@ -68,7 +68,7 @@ export const AuthProvider = ({children}) =>{
             }
         }
 
-        //fetch service data from database
+ //fetch service data from database
         const getServicwsData = async () =>{
             try {
 
@@ -107,7 +107,7 @@ export const AuthProvider = ({children}) =>{
 
 
     return (
-    <AuthContext.Provider value={{isLoggeIn ,LogoutUser ,  storeTokenInLS , user ,service}}>
+    <AuthContext.Provider value={{isLoggeIn ,LogoutUser ,  storeTokenInLS , user ,service , authorizationToken,isLodding}}>
         {children}
     </AuthContext.Provider>
 );

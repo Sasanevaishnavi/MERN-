@@ -13,7 +13,7 @@ export const  Services = () =>{
                <h1 className="main-heading">Services</h1>
             </div>
 
-            <div className="container grid grid-three-cols">
+            <div className=" grid grid-three-cols">
                 
 
                 {service.map((curElem,intex) =>{
@@ -22,7 +22,7 @@ export const  Services = () =>{
                     return(
                         <div className="card" key={intex}>
                         <div className="card-img">
-                            <img src="./home.png" alt="our services" width="200"/>
+                            <img src="./cource.png" alt="our services" width="200"/>
                         </div>
 
                         <div className="card-details">
