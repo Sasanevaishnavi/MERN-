@@ -4,7 +4,7 @@ export const Footer = () =>{
             <div className="footer-content" >
                 <div className="grid">
                     
-                        <p>Please Vist Our Hospital</p>
+                        <p>Please Vist </p>
                    
                     
 
