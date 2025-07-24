@@ -11,7 +11,6 @@ import {Footer} from "./Components/Footer";
 import {Error} from "./pages/Error"
 import { Logout } from "./pages/Logout";
 
-import { AdminLayout } from "./Components/layouts/Admin-Layout";
 
 import { AdminUser } from "./pages/Admin-User";
 import { AdminContact } from "./pages/Admin-Contact";
